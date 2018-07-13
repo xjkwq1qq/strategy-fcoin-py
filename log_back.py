@@ -13,7 +13,7 @@ class Log(object):
         self.filename = setting['filename']
         self.name = name
         self.logger = logging.getLogger(self.name)
-        self.logger.setLevel(logging.INFO)
+        self.logger.setLevel(logging.ERROR)
         self.fh = logging.FileHandler(self.path + self.filename)
         self.fh.setLevel(logging.DEBUG)
         self.formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(name)s - %(message)s')

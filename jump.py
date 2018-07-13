@@ -65,6 +65,15 @@ class App():
                 dic_blance[item['currency']] = balance(float(item['available']), float(item['frozen']),float(item['balance']))
         return dic_blance
 
+    def syn_blance(self):
+        dic_blance = defaultdict(lambda: None)
+        data = self.fcoin.get_balance()
+        if data:
+            for item in data['data']:
+                dic_blance[item['currency']] = balance(float(item['available']), float(item['frozen']),float(item['balance']))
+
+        return dic_blance
+
     def save_csv(self,array):
         with open("data/trade.csv","a+",newline='') as w:
             writer = csv.writer(w)
